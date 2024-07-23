@@ -7,7 +7,7 @@ export const stageThree = {
     storage[from].address = message
     storage[from].stage = STAGES.PEDIDO
 
-    let msg = 'Pedido *CANCELADO* com sucesso. \n Volte Sempre!'
+    let msg = 'Solicitação *CANCELADA* com sucesso. \n Volte Sempre!'
     if (message === '*') {
       storage[from].stage = STAGES.INICIAL
     } else {
@@ -17,7 +17,7 @@ export const stageThree = {
       const total = storage[from].itens.length
 
       msg =
-        `🗒️ *RESUMO DO PEDIDO*: \n\n🧁 Sabores: *${desserts}* \n🚚 Taxa de entrega: *a confirmar*. \n📍 Endereço: *${message}* \n💰 Valor dos bolos: *${
+        `🗒️ *RESUMO DA SOLICITAÇÃO*: \n\n🧁 SERVIÇOS: *${desserts}* \n🚚 Taxa de entrega: *a confirmar*. \n📍 E-mail: *${message}* \n💰 preço dos serviços: *${
           total * 6
         },00 reais*. \n⏳ Tempo de entrega: *50 minutos*. \n\n` +
         '🔊 ```Agora, informe a forma de pagamento e se vai precisar de troco, por gentileza.```'

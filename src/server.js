@@ -4,7 +4,7 @@ import { stages, getStage } from './stages.js'
 const main = async () => {
   try {
     const venombot = await VenomBot.getInstance().init({
-      session: 'Delícias da Neide',
+      session: 'Engage Flow',
       headless: true,
       useChrome: false,
     })

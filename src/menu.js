@@ -1,22 +1,22 @@
 export const menu = {
   1: {
-    description: 'Leite Ninho',
+    description: 'Chat Bot',
     price: 6,
   },
   2: {
-    description: 'Alpino',
+    description: 'Campanhas Pagas',
     price: 6,
   },
   3: {
-    description: 'Prestígio',
+    description: 'Growth Hacking',
     price: 6,
   },
   4: {
-    description: 'Abacaxi',
+    description: 'SEO Para Seu Site',
     price: 6,
   },
   5: {
-    description: 'Dois Amores',
+    description: 'Construção de Site',
     price: 6,
   },
 }

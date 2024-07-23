@@ -34,7 +34,7 @@ export const stageOne = {
 
 const options = {
   1: () => {
-    let message = '🚨  CARDÁPIO  🚨\n\n'
+    let message = '🚨  SERVIÇOS  🚨\n\n'
 
     Object.keys(menu).forEach((value) => {
       message += `${numbers[value]} - _${menu[value].description}_ \n`
@@ -47,9 +47,9 @@ const options = {
   },
   2: () => {
     const message =
-      '\n-----------------------------------\n1️⃣ - ```FAZER PEDIDO``` \n0️⃣ - ```FALAR COM ATENDENTE```\n\n' +
+      '\n-----------------------------------\n1️⃣ - ```Estrátegias de Crescimento``` \n0️⃣ - ```FALAR COM ESPECIALISTA```\n\n' +
       neighborhoods +
-      '\n-----------------------------------\n1️⃣ - ```FAZER PEDIDO``` \n0️⃣ - ```FALAR COM ATENDENTE``` '
+      '\n-----------------------------------\n1️⃣ - ```Estrátegias de Crescimento``` \n0️⃣ - ```FALAR COM ESPECIALISTA``` '
 
     return {
       message,
@@ -59,7 +59,7 @@ const options = {
   0: () => {
     return {
       message:
-        '🔃 Encaminhando você para um atendente. \n⏳ *Aguarde um instante*.\n \n⚠️ A qualquer momento, digite *ENCERRAR* para encerrar o atendimento. ⚠️',
+        '🔃 Encaminhando você para um Especialista. \n⏳ *Aguarde um instante*.\n \n⚠️ A qualquer momento, digite *ENCERRAR* para encerrar o atendimento. ⚠️',
       nextStage: STAGES.FALAR_COM_ATENDENTE,
     }
   },

@@ -20,7 +20,7 @@ export const stageTwo = {
         msg =
           `✅ *${menu[message].description}* adicionado com sucesso! \n\n` +
           '```Digite outra opção```: \n\n' +
-          '\n-----------------------------------\n#️⃣ - ```FINALIZAR pedido``` \n*️⃣ - ```CANCELAR pedido```'
+          '\n-----------------------------------\n#️⃣ - ```ESCOLHER ESTRRATEGIAS``` \n*️⃣ - ```CANCELAR ```'
         storage[params.from].itens.push(menu[message])
       }
 
@@ -36,7 +36,7 @@ export const stageTwo = {
 const options = {
   '*': () => {
     const message =
-      '🔴 Pedido *CANCELADO* com sucesso. \n\n ```Volte Sempre!```'
+      '🔴 Solicitação *CANCELADa* com sucesso. \n\n ```Volte Sempre!```'
 
     return {
       message,
@@ -45,8 +45,8 @@ const options = {
   },
   '#': () => {
     const message =
-      '🗺️ Agora, informe o *ENDEREÇO*. \n ( ```Rua, Número, Bairro``` ) \n\n ' +
-      '\n-----------------------------------\n*️⃣ - ```CANCELAR pedido```'
+      '🗺️ Agora, informe o *E-mail*. \n ( ```EX: contato@engageflow.sgop``` ) \n\n ' +
+      '\n-----------------------------------\n*️⃣ - ```CANCELAR solicitação```'
 
     return {
       message,
