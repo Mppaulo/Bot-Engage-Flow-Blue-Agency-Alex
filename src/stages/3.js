@@ -17,14 +17,12 @@ export const stageThree = {
       const total = storage[from].itens.length
 
       msg =
-        `🗒️ *RESUMO DA SOLICITAÇÃO*: \n\n🧁 SERVIÇOS: *${desserts}* \n🚚 Taxa de entrega: *a confirmar*. \n📍 E-mail: *${message}* \n💰 preço dos serviços: *${
-          total * 6
-        },00 reais*. \n⏳ Tempo de entrega: *50 minutos*. \n\n` +
-        '🔊 ```Agora, informe a forma de pagamento e se vai precisar de troco, por gentileza.```'
+        `🗒️ *RESUMO DA SOLICITAÇÃO*: \n\n🧁 SOLUÇÕES SOLICITADAS: *${desserts}* \n📍 E-mail: *${message}* \n⏳ Tempo de entrega: *a combinar*. \n\n` +
+        '🔊 *Como especialistas, sabemos que um serviço personalizado faz a diferença. Imagine um serviço adaptado às suas necessidades! \n\n✨ Conte-nos mais sobre o que você precisa e qualquer outra informação importante.*'
     }
 
     await VenomBot.getInstance().sendText({ to: from, message: msg })
 
-    // return '✅ *Prontinho, pedido feito!* \n\nAgora, se você ainda não sabe o valor da taxa de entrega para sua região, vou te passar para um atendente para que ele verique o valor da *taxa de entrega*. \n\n⏳ *Aguarde um instante*.'
+     //return '✅ *Prontinho, pedido feito!* \n\nAgora, se você ainda não sabe o valor da taxa de entrega para sua região, vou te passar para um atendente para que ele verique o valor da *taxa de entrega*. \n\n⏳ *Aguarde um instante*.'
   },
 }

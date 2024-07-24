@@ -13,7 +13,7 @@ export const initialStage = {
       Eu sou Toth, o *assistente virtual* da ${venombot.getSessionName}.
       *Posso te ajudar?* 🙋‍♂️
       -----------------------------------
-      1️⃣ - Estrátegias Digitais 🚀
+      1️⃣ - Estratégias Digitais 🚀
       2️⃣ - Agendar com Especialista💡
       0️⃣ - Consultoria Gratutita 👨🏻‍💻
     `

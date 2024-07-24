@@ -34,7 +34,7 @@ export const stageOne = {
 
 const options = {
   1: () => {
-    let message = '🚨  SERVIÇOS  🚨\n\n'
+    let message = '🚨 Estratégias Digitais 🚨\n\n'
 
     Object.keys(menu).forEach((value) => {
       message += `${numbers[value]} - _${menu[value].description}_ \n`
@@ -47,10 +47,10 @@ const options = {
   },
   2: () => {
     const message =
-      '\n-----------------------------------\n1️⃣ - ```Estrátegias de Crescimento``` \n0️⃣ - ```FALAR COM ESPECIALISTA```\n\n' +
-      neighborhoods +
-      '\n-----------------------------------\n1️⃣ - ```Estrátegias de Crescimento``` \n0️⃣ - ```FALAR COM ESPECIALISTA``` '
-
+     // '\n-----------------------------------\n1️⃣ - ```Estratágias de Crescimento``` \n0️⃣ - ```FALAR COM ESPECIALISTA```\n\n' +
+    //  neighborhoods +
+     // '\n-----------------------------------\n1️⃣ - ```Estratégias de Crescimento``` \n0️⃣ - ```FALAR COM ESPECIALISTA``` '
+        ''
     return {
       message,
       nextStage: null,
@@ -71,4 +71,5 @@ const numbers = {
   3: '3️⃣',
   4: '4️⃣',
   5: '5️⃣',
+  6: '6️⃣',
 }

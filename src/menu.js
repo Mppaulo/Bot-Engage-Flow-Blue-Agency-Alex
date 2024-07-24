@@ -1,22 +1,26 @@
 export const menu = {
   1: {
     description: 'Chat Bot',
-    price: 6,
+    price: 100,
   },
   2: {
     description: 'Campanhas Pagas',
-    price: 6,
+    price: 300,
   },
   3: {
     description: 'Growth Hacking',
-    price: 6,
+    price: 200,
   },
   4: {
     description: 'SEO Para Seu Site',
-    price: 6,
+    price: 100,
   },
   5: {
     description: 'Construção de Site',
-    price: 6,
+    price: 100,
+  },
+  6: {
+    description: 'Outras estratégias',
+    price: 50,
   },
 }

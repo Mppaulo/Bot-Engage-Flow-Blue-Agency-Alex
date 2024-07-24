@@ -6,7 +6,7 @@ import { STAGES } from './index.js'
 export const stageTwo = {
   async exec(params) {
     const message = params.message.trim()
-    const isMsgValid = /[1|2|3|4|5|#|*]/.test(message)
+    const isMsgValid = /[1|2|3|4|5|6|#|*]/.test(message)
 
     let msg =
       '❌ *Digite uma opção válida, por favor.* \n⚠️ ```APENAS UMA OPÇÃO POR VEZ``` ⚠️'
@@ -20,7 +20,7 @@ export const stageTwo = {
         msg =
           `✅ *${menu[message].description}* adicionado com sucesso! \n\n` +
           '```Digite outra opção```: \n\n' +
-          '\n-----------------------------------\n#️⃣ - ```ESCOLHER ESTRRATEGIAS``` \n*️⃣ - ```CANCELAR ```'
+          '\n-----------------------------------\n#️⃣ - ```CONFIRMAR ESTRATÉGIAS``` \n*️⃣ - ```CANCELAR ```'
         storage[params.from].itens.push(menu[message])
       }
 
@@ -36,7 +36,7 @@ export const stageTwo = {
 const options = {
   '*': () => {
     const message =
-      '🔴 Solicitação *CANCELADa* com sucesso. \n\n ```Volte Sempre!```'
+      '🔴 Solicitação *CANCELADA* com sucesso. \n\n ```Volte Sempre!```'
 
     return {
       message,
@@ -45,7 +45,7 @@ const options = {
   },
   '#': () => {
     const message =
-      '🗺️ Agora, informe o *E-mail*. \n ( ```EX: contato@engageflow.sgop``` ) \n\n ' +
+      '📧 Agora, informe o *E-mail*. \n ( ```EX: contato@engageflow.shop``` ) \n\n ' +
       '\n-----------------------------------\n*️⃣ - ```CANCELAR solicitação```'
 
     return {
