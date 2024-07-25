@@ -20,7 +20,7 @@ export const stageFour = {
 
     const msg = `🔔 *NOVO PEDIDO* 🔔: \n\n📞 Cliente: +${
       phone[0]
-    } \n🧁 Soluções: *${desserts}* \n📍 E-mail: *${address}* \n📝 Detalhes: *${message}*  \n  \n 👨🏻‍💻 *Para garantir que você receba a melhor solução, um de nossos especialistas entrará em contato com você em breve.*`
+    } \n🧁 Soluções: *${desserts}* \n📍 E-mail: *${address}* \n📝 Detalhes: *${message}*  \n  \n👨🏻‍💻 *Para garantir que você receba a melhor solução, um de nossos especialistas entrará em contato com você em breve.*`
 
     await VenomBot.getInstance().sendText({ to: from, message: msg })
   },
