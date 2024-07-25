@@ -47,20 +47,19 @@ const options = {
   },
   2: () => {
     const message =
-     // '\n-----------------------------------\n1️⃣ - ```Estratágias de Crescimento``` \n0️⃣ - ```FALAR COM ESPECIALISTA```\n\n' +
-    //  neighborhoods +
-     // '\n-----------------------------------\n1️⃣ - ```Estratégias de Crescimento``` \n0️⃣ - ```FALAR COM ESPECIALISTA``` '
-        ''
+      '\n-----------------------------------\n1️⃣ - ```Acesse nosso site``` \n0️⃣ - ```Agende sua consulta Gratuita com um de nossos especialistas```\n\n https://EngageFlow.shop' 
+        
     return {
       message,
-      nextStage: null,
+      nextStage: STAGES.FALAR_COM_ATENDENTE,
     }
   },
   0: () => {
     return {
       message:
         '🔃 Encaminhando você para um Especialista. \n⏳ *Aguarde um instante*.\n \n⚠️ A qualquer momento, digite *ENCERRAR* para encerrar o atendimento. ⚠️',
-      nextStage: STAGES.FALAR_COM_ATENDENTE,
+        //criar uma forma de eu receber a informação de que a pessoa quer falar com um especialista no caso eu
+        nextStage: STAGES.FALAR_COM_ATENDENTE,
     }
   },
 }

@@ -14,8 +14,8 @@ export const initialStage = {
       *Posso te ajudar?* 🙋‍♂️
       -----------------------------------
       1️⃣ - Estratégias Digitais 🚀
-      2️⃣ - Agendar com Especialista💡
-      0️⃣ - Consultoria Gratutita 👨🏻‍💻
+      2️⃣ - Consultoria Gratutita💡
+      0️⃣ - Falar com Especialista 👨🏻‍💻
     `
     await venombot.sendText({ to: from, message })
   },
