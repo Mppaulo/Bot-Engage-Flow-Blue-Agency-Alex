@@ -1,74 +1,24 @@
-import { VenomBot } from '../venom.js'
-import { menu } from '../menu.js'
-import { storage } from '../storage.js'
-import { neighborhoods } from './neighborhoods.js'
-import { initialStage } from './0.js'
-import { STAGES } from './index.js'
+import { storage } from '../storage.js';
+import { VenomBot } from '../venom.js';
+import { STAGES } from '../stages.js';
 
-export const stageOne = {
-  async exec(params) {
-    const message = params.message.trim()
-    const isMsgValid = /[0|1|2]/.test(message)
+export const perguntarNomeStage = {
+  async exec({ from, message }) {
+    const venombot = await VenomBot.getInstance();
 
-    let msg =
-      '❌ *Digite uma opção válida, por favor.* \n⚠️ ```APENAS UMA OPÇÃO POR VEZ``` ⚠️'
+    // Captura o nome do usuário
+    storage[from].contact.name = message.trim();
+    // Atualiza o estágio para Serviços
+    storage[from].stage = STAGES.SERVICOS;
 
-    if (isMsgValid) {
-      const option = options[Number(message)]()
-      msg = option.message
-      storage[params.from].stage = option.nextStage || STAGES.INICIAL
-    }
-
-    await VenomBot.getInstance().sendText({ to: params.from, message: msg })
-
-    if (storage[params.from].stage === STAGES.INICIAL) {
-      await initialStage.exec(params)
-    } else if (storage[params.from].stage === STAGES.FALAR_COM_ATENDENTE) {
-      storage[params.from].finalStage = {
-        startsIn: new Date().getTime(),
-        endsIn: new Date().setSeconds(60), // 1 minute of inactivity
-      }
-    }
+    const responseMessage = `
+Obrigado, ${storage[from].contact.name}! Como posso te ajudar hoje? 😊
+-----------------------------------
+1️⃣ - VER SERVIÇOS
+2️⃣ - ORÇAMENTO
+3️⃣ - DÚVIDAS FREQUENTES
+0️⃣ - FALAR COM UM CONSULTOR
+    `;
+    await venombot.sendText(from, responseMessage);
   },
-}
-
-const options = {
-  1: () => {
-    let message = '🚨 Estratégias Digitais 🚨\n\n'
-
-    Object.keys(menu).forEach((value) => {
-      message += `${numbers[value]} - _${menu[value].description}_ \n`
-    })
-
-    return {
-      message,
-      nextStage: STAGES.CARRINHO,
-    }
-  },
-  2: () => {
-    const message =
-      '\n-----------------------------------\n1️⃣ - ```Acesse nosso site``` \n0️⃣ - ```Agende sua consulta Gratuita com um de nossos especialistas```\n\n https://EngageFlow.shop' 
-        
-    return {
-      message,
-      nextStage: STAGES.FALAR_COM_ATENDENTE,
-    }
-  },
-  0: () => {
-    return {
-      message:
-        '🔃 Encaminhando você para um Especialista. \n⏳ *Aguarde um instante*.\n \n⚠️ A qualquer momento, digite *ENCERRAR* para encerrar o atendimento. ⚠️',
-        //criar uma forma de eu receber a informação de que a pessoa quer falar com um especialista no caso eu
-        nextStage: STAGES.FALAR_COM_ATENDENTE,
-    }
-  },
-}
-
-const numbers = {
-  1: '1️⃣',
-  2: '2️⃣',
-  3: '3️⃣',
-  4: '4️⃣',
-  5: '5️⃣',
-  6: '6️⃣',
-}
+};

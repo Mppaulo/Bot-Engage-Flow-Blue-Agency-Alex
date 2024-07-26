@@ -1,22 +1,27 @@
-import { storage } from '../storage.js'
-import { VenomBot } from '../venom.js'
-import { STAGES } from './index.js'
+import { storage } from '../storage.js';
+import { VenomBot } from '../venom.js';
+import { STAGES } from '../stages.js';
 
 export const initialStage = {
   async exec({ from }) {
-    storage[from].stage = STAGES.MENU
+    if (!storage[from]) {
+      storage[from] = {
+        stage: STAGES.PERGUNTAR_NOME,
+        service: null,
+        contact: {},
+      };
+    } else {
+      storage[from].stage = STAGES.PERGUNTAR_NOME;
+    }
 
-    const venombot = await VenomBot.getInstance()
+    const venombot = await VenomBot.getInstance();
 
     const message = `
-      👋 Olá, como vai?
-      Eu sou Toth, o *assistente virtual* da ${venombot.getSessionName}.
-      *Posso te ajudar?* 🙋‍♂️
-      -----------------------------------
-      1️⃣ - Estratégias Digitais 🚀
-      2️⃣ - Consultoria Gratutita💡
-      0️⃣ - Falar com Especialista 👨🏻‍💻
-    `
-    await venombot.sendText({ to: from, message })
+👋 Olá, bem-vindo à *Agência Digital Turbo*!
+
+Eu sou a Mia, sua *assistente virtual*. 
+Para começarmos, por favor, informe seu nome:
+    `;
+    await venombot.sendText(from, message);
   },
-}
+};

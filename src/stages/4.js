@@ -1,27 +1,24 @@
-import { VenomBot } from '../venom.js'
-import { storage } from '../storage.js'
-import { STAGES } from './index.js'
+import { VenomBot } from '../venom.js';
+import { storage } from '../storage.js';
+import { STAGES } from '../stages.js';
 
-export const stageFour = {
+export const budgetStage = {
   async exec({ from, message }) {
-    const address = storage[from].address
-    const phone = from.split('@')
+    const venombot = await VenomBot.getInstance();
 
-    storage[from].stage = STAGES.FALAR_COM_ATENDENTE
+    // Simulação de orçamento recebido
+    storage[from].budget = message.trim();
 
-    storage[from].finalStage = {
-      startsIn: new Date().getTime(),
-      endsIn: new Date().setSeconds(60), // 1 minute of inactivity
-    }
+    const responseMessage = `
+Obrigado! Vamos enviar um orçamento detalhado para o e-mail fornecido.
 
-    const itens = storage[from].itens
-    const desserts = itens.map((item) => item.description).join(', ')
-    const total = storage[from].itens.length
-
-    const msg = `🔔 *NOVO PEDIDO* 🔔: \n\n📞 Cliente: +${
-      phone[0]
-    } \n🧁 Soluções: *${desserts}* \n📍 E-mail: *${address}* \n📝 Detalhes: *${message}*  \n  \n👨🏻‍💻 *Para garantir que você receba a melhor solução, um de nossos especialistas entrará em contato com você em breve.*`
-
-    await VenomBot.getInstance().sendText({ to: from, message: msg })
+Deseja mais alguma informação?
+1️⃣ - VER SERVIÇOS
+2️⃣ - ORÇAMENTO
+3️⃣ - DÚVIDAS FREQUENTES
+0️⃣ - FALAR COM UM CONSULTOR
+    `;
+    await venombot.sendText(from, responseMessage);
+    storage[from].stage = STAGES.SERVICOS;
   },
-}
+};
